@@ -8,6 +8,8 @@ const cors = require('cors')
 
 const authRoutes = require('./routes/authRoutes')
 const challengeRoutes = require('./routes/challengeRoutes')
+const goalRoutes = require('./routes/goalRoutes')
+
 //
 
 dotenv.config()
@@ -22,8 +24,10 @@ mongoose.connection.on('connected', ()=>{
 app.use(cors({origin: 'http://localhost:5173'}))
 app.use(express.json())
 app.use(logger('dev'))
+// routes
 app.use('/auth', authRoutes)
 app.use('/challenge', challengeRoutes)
+app.use('/goal', goalRoutes)
 
 const port = process.env.PORT
 
