@@ -11,8 +11,11 @@ const challengeSchema = new mongoose.Schema({
       required: true },
     
     name: String,
+
     description: String,
+
     type:{type: String, enum: ['bulk', 'cut', 'maintain']},
+    
     duration: {type: Number }, //required: true},
   
     sets: {type: Number },
