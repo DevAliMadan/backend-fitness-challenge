@@ -1,4 +1,6 @@
 const challenge = require('../models/challenge')
+const challenge = require('../models/challenge')
+const challenge = require('../models/challenge')
 
 
 const createChallenge = async (req, res) =>{
@@ -28,7 +30,7 @@ const getChallenge = async (req, res) =>{
 
 const showChallenge = async (req, res) =>{
     try{
-
+        const challenge = await challenge.find
     }
     catch(err){
         console.log(err)
