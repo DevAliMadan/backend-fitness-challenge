@@ -1,7 +1,7 @@
 const challenge = require('../models/challenge')
 
 
-const createChallenge = async (res, req) =>{
+const createChallenge = async (req, res) =>{
     try{
         const createChallenge = await challenge.create(req.body)
         res.status(201).json(createChallenge)
@@ -11,7 +11,22 @@ const createChallenge = async (res, req) =>{
         res.status(500).json({error: err.message})
     }
 }
-const getChallenge = async (res, req) =>{
+const getChallenge = async (req, res) =>{
+    try{
+        const allChallenges = await challenge.find()
+        if (allChallenges.length) {
+            res.status(200).json(allChallenges)
+        } else{
+            res.sendStatus(204)
+        }
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({error: err.message})
+    }
+}
+
+const showChallenge = async (req, res) =>{
     try{
 
     }
@@ -20,8 +35,7 @@ const getChallenge = async (res, req) =>{
         res.status(500).json({error: err.message})
     }
 }
-
-const showChallenge = async (res, req) =>{
+const updateChallenge = async (req, res) =>{
     try{
 
     }
@@ -30,16 +44,7 @@ const showChallenge = async (res, req) =>{
         res.status(500).json({error: err.message})
     }
 }
-const updateChallenge = async (res, req) =>{
-    try{
-
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({error: err.message})
-    }
-}
-const deleteChallenge = async (res, req) =>{
+const deleteChallenge = async (req, res) =>{
     try{
 
     }
