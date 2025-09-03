@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     age: {type: Number},
     height: {type: Number},
     weight: {type: Number},
-    gender: {enum: ['male', 'female']}
+    gender: {type: String, enum: ['male', 'female']}
 })
 
 

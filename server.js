@@ -25,6 +25,8 @@ app.use(logger('dev'))
 app.use('/auth', authRoutes)
 app.use('/challenge', challengeRoutes)
 
-app.listen(3000, () => {
-    console.log('App is listening!')
+const port = process.env.PORT
+
+app.listen(port, () => {
+    console.log('App is listening on port ' + port)
 })
