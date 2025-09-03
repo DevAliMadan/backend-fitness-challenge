@@ -1,3 +1,5 @@
+const { json } = require('express')
+const challenge = require('../models/challenge')
 const challenge = require('../models/challenge')
 const challenge = require('../models/challenge')
 const challenge = require('../models/challenge')
@@ -30,7 +32,12 @@ const getChallenge = async (req, res) =>{
 
 const showChallenge = async (req, res) =>{
     try{
-        const challenge = await challenge.find
+        const oneChallenge = await challenge.findById(req.params.id)
+        if (oneChallenge) {
+            res.status(200).json(oneChallenge)
+        } else {
+            res.sendStatus(404)
+        }
     }
     catch(err){
         console.log(err)
