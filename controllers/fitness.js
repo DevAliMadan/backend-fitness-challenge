@@ -1,8 +1,6 @@
-const { json } = require('express')
+
 const challenge = require('../models/challenge')
-const challenge = require('../models/challenge')
-const challenge = require('../models/challenge')
-const challenge = require('../models/challenge')
+
 
 
 const createChallenge = async (req, res) =>{
@@ -54,9 +52,15 @@ const updateChallenge = async (req, res) =>{
         res.status(500).json({error: err.message})
     }
 }
+
 const deleteChallenge = async (req, res) =>{
     try{
-
+        const deleteChallenge = await challenge.findByIdAndDelete(req.params.id)
+        if (deleteChallenge) {
+            res.status(200).json(deleteChallenge)
+        } else {
+            res.sendStatus(404)
+        }
     }
     catch(err){
         console.log(err)
