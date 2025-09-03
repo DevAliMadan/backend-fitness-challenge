@@ -7,6 +7,7 @@ const cors = require('cors')
 //  routes here
 
 const authRoutes = require('./routes/authRoutes')
+const challengeRoutes = require('./routes/challengeRoutes')
 //
 
 dotenv.config()
@@ -18,9 +19,11 @@ mongoose.connection.on('connected', ()=>{
     console.log('connected to mongoDB')
 })
 
+app.use(cors({origin: 'http://localhost:5173'}))
 app.use(express.json())
 app.use(logger('dev'))
 app.use('/auth', authRoutes)
+app.use('/challenge', challengeRoutes)
 
 app.listen(3000, () => {
     console.log('App is listening!')

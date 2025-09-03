@@ -6,10 +6,10 @@ const challengeController = require('../controllers/challengeController')
 
 
 router.post('/create', challengeController.createChallenge)
-router.get('/challenges', secureRoute, challengeController.getChallenge)
-router.get('/challenges/:id', challengeController.showChallenge)
-router.put('/challenges/:id', challengeController.updateChallenge)
-router.delete('/challenges/:id', challengeController.deleteChallenge)
+router.get('/', secureRoute, challengeController.getChallenge)
+router.get('/:id', challengeController.showChallenge)
+router.put('/:id', challengeController.updateChallenge)
+router.delete('/:id', challengeController.deleteChallenge)
 
 
 
