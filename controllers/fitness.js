@@ -46,7 +46,8 @@ const showChallenge = async (req, res) =>{
 }
 const updateChallenge = async (req, res) =>{
     try{
-
+        const update = await challenge.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(200).json(update)
     }
     catch(err){
         console.log(err)
