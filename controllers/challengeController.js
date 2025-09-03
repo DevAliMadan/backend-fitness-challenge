@@ -15,7 +15,7 @@ const createChallenge = async (req, res) =>{
 }
 const getChallenge = async (req, res) =>{
     try{
-        const allChallenges = await challenge.find()
+        const allChallenges = await challenge.find().populate("trainer")
         if (allChallenges.length) {
             res.status(200).json(allChallenges)
         } else{
@@ -30,7 +30,7 @@ const getChallenge = async (req, res) =>{
 
 const showChallenge = async (req, res) =>{
     try{
-        const oneChallenge = await challenge.findById(req.params.id)
+        const oneChallenge = await challenge.findById(req.params.id).populate("trainer")
         if (oneChallenge) {
             res.status(200).json(oneChallenge)
         } else {

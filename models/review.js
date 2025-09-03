@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema({
         ref: "Challenge", 
         required: true
     },
-    challengerId:{
+    challenger:{
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User", 
         required: true
