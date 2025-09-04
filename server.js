@@ -9,6 +9,7 @@ const cors = require('cors')
 const authRoutes = require('./routes/authRoutes')
 const challengeRoutes = require('./routes/challengeRoutes')
 const goalRoutes = require('./routes/goalRoutes')
+const reviewRoutes = require('./routes/reviewRoutes')
 
 //
 
@@ -28,6 +29,7 @@ app.use(logger('dev'))
 app.use('/auth', authRoutes)
 app.use('/challenge', challengeRoutes)
 app.use('/goal', goalRoutes)
+app.use('/review', reviewRoutes)
 
 const port = process.env.PORT
 
